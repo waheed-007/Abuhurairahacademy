@@ -5,8 +5,7 @@ import ScrollToTop from './components/ScrollToTop'
 import Home from './pages/Home'
 import About from './pages/About'
 import Programs from './pages/Programs'
-import Kids from './pages/Kids'
-import Salaah from './pages/Salaah'
+import SummerCamp from './pages/SummerCamp'
 import Gallery from './pages/Gallery'
 import Contact from './pages/Contact'
 
@@ -20,8 +19,7 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/programs" element={<Programs />} />
-          <Route path="/kids" element={<Kids />} />
-          <Route path="/salaah" element={<Salaah />} />
+          <Route path="/summer-camp" element={<SummerCamp />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<Home />} />

@@ -1,18 +1,18 @@
 import { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
-import { HeartHandshake, Menu, X } from 'lucide-react'
+import { Menu, Sparkles, X } from 'lucide-react'
 import { navLinks } from '../data/site'
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 z-50 border-b border-forest-100 bg-cream/90 backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-brand-100 bg-cream/90 backdrop-blur">
       <div className="container-content flex h-16 items-center justify-between gap-4">
         <Link to="/" className="flex items-center gap-2.5" onClick={() => setOpen(false)}>
           <img src="/favicon.svg" alt="" className="h-9 w-9" />
-          <span className="font-display text-lg leading-tight text-forest-900 sm:text-xl">
-            Abu Hurairah Academy
+          <span className="font-display text-lg leading-tight text-brand-900 sm:text-xl">
+            AbuHurairah Academy
           </span>
         </Link>
 
@@ -25,23 +25,23 @@ export default function Navbar() {
               className={({ isActive }) =>
                 `rounded-full px-3.5 py-2 text-sm font-medium transition ${
                   isActive
-                    ? 'bg-forest-100 text-forest-900'
-                    : 'text-forest-800/80 hover:bg-forest-50 hover:text-forest-900'
+                    ? 'bg-brand-100 text-brand-900'
+                    : 'text-brand-800/80 hover:bg-brand-50 hover:text-brand-900'
                 }`
               }
             >
               {link.label}
             </NavLink>
           ))}
-          <Link to="/contact#donate" className="btn-gold ml-2 !px-5 !py-2">
-            <HeartHandshake size={16} />
-            Donate
+          <Link to="/contact#register" className="btn-gold ml-2 !px-5 !py-2">
+            <Sparkles size={16} />
+            Register 2026
           </Link>
         </nav>
 
         <button
           type="button"
-          className="rounded-md p-2 text-forest-900 lg:hidden"
+          className="rounded-md p-2 text-brand-900 lg:hidden"
           aria-label={open ? 'Close menu' : 'Open menu'}
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
@@ -51,7 +51,7 @@ export default function Navbar() {
       </div>
 
       {open && (
-        <nav className="border-t border-forest-100 bg-cream lg:hidden" aria-label="Mobile">
+        <nav className="border-t border-brand-100 bg-cream lg:hidden" aria-label="Mobile">
           <div className="container-content flex flex-col gap-1 py-3">
             {navLinks.map((link) => (
               <NavLink
@@ -61,7 +61,7 @@ export default function Navbar() {
                 onClick={() => setOpen(false)}
                 className={({ isActive }) =>
                   `rounded-lg px-4 py-2.5 text-sm font-medium ${
-                    isActive ? 'bg-forest-100 text-forest-900' : 'text-forest-800/80'
+                    isActive ? 'bg-brand-100 text-brand-900' : 'text-brand-800/80'
                   }`
                 }
               >
@@ -69,12 +69,12 @@ export default function Navbar() {
               </NavLink>
             ))}
             <Link
-              to="/contact#donate"
+              to="/contact#register"
               onClick={() => setOpen(false)}
               className="btn-gold mt-2 self-start !px-5 !py-2"
             >
-              <HeartHandshake size={16} />
-              Donate
+              <Sparkles size={16} />
+              Register 2026
             </Link>
           </div>
         </nav>

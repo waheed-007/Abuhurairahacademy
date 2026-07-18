@@ -1,4 +1,4 @@
-import { Image } from 'lucide-react'
+﻿import { Image } from 'lucide-react'
 
 /* Stand-in block for a real academy photo. `label` names the photo the
    academy should supply, e.g. "Quran class in session". */
@@ -10,7 +10,7 @@ interface PlaceholderProps {
 export default function Placeholder({ label, className = '' }: PlaceholderProps) {
   return (
     <div
-      className={`flex flex-col items-center justify-center gap-2 rounded-2xl border border-dashed border-forest-300 bg-forest-50 text-forest-500 ${className}`}
+      className={`flex flex-col items-center justify-center gap-2 rounded-2xl border border-dashed border-brand-300 bg-brand-50 text-brand-500 ${className}`}
       role="img"
       aria-label={`Photo placeholder: ${label}`}
     >

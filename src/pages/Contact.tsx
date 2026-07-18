@@ -1,24 +1,21 @@
 import { FormEvent, useState } from 'react'
-import { HeartHandshake, Mail, MapPin, Phone, Send } from 'lucide-react'
+import { CalendarCheck, Instagram, MapPin, MessageSquareText, Phone, Send } from 'lucide-react'
 import PageHero from '../components/PageHero'
 import SectionHeading from '../components/SectionHeading'
-import { site } from '../data/site'
+import { site, summerCamp } from '../data/site'
 
 const inputClass =
-  'w-full rounded-xl border border-forest-200 bg-white px-4 py-3 text-sm text-ink placeholder:text-ink/40 focus:border-forest-500 focus:outline-none focus:ring-2 focus:ring-forest-200'
+  'w-full rounded-xl border border-brand-200 bg-white px-4 py-3 text-sm text-ink placeholder:text-ink/40 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-200'
 
 export default function Contact() {
-  const [form, setForm] = useState({ name: '', phone: '', subject: '', message: '' })
+  const [form, setForm] = useState({ name: '', childAge: '', message: '' })
 
-  /* No backend yet — submitting opens the visitor's own email app with the
-     message pre-filled, addressed to the academy. */
+  /* No backend yet — submitting opens the visitor's messaging app with a
+     text to the academy's number pre-filled. */
   function handleSubmit(e: FormEvent) {
     e.preventDefault()
-    const body = `Name: ${form.name}\nPhone: ${form.phone}\n\n${form.message}`
-    const url = `mailto:${site.email}?subject=${encodeURIComponent(
-      form.subject || 'Enquiry from the website',
-    )}&body=${encodeURIComponent(body)}`
-    window.location.href = url
+    const body = `Assalamu alaikum, this is ${form.name}. Child's age: ${form.childAge}. ${form.message}`
+    window.location.href = `${site.smsHref}?&body=${encodeURIComponent(body)}`
   }
 
   return (
@@ -26,7 +23,7 @@ export default function Contact() {
       <PageHero
         eyebrow="Contact Us"
         title="We'd Love to Hear From You"
-        intro="Enrolment enquiries, salaah times, volunteering or anything else — call, email or visit us at the academy."
+        intro="Registration, summer camp, or any question about the academy — call, text, or message us on Instagram."
       />
 
       <section className="py-16 sm:py-20">
@@ -36,44 +33,46 @@ export default function Contact() {
             <SectionHeading align="left" eyebrow="Get In Touch" title="Academy Details" />
             <ul className="mt-6 space-y-5">
               <li className="flex items-start gap-4">
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-forest-800 text-gold-300">
-                  <MapPin size={20} />
-                </div>
-                <div>
-                  <p className="font-semibold text-forest-900">Address</p>
-                  <p className="text-sm text-ink/70">{site.address}</p>
-                </div>
-              </li>
-              <li className="flex items-start gap-4">
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-forest-800 text-gold-300">
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-brand-800 text-gold-300">
                   <Phone size={20} />
                 </div>
                 <div>
-                  <p className="font-semibold text-forest-900">Phone / Fax</p>
-                  <a href={site.phoneHref} className="text-sm text-ink/70 hover:text-forest-800">
-                    {site.phone}
+                  <p className="font-semibold text-brand-900">Call or Text</p>
+                  <a href={site.phoneHref} className="text-sm text-ink/70 hover:text-brand-800">
+                    {site.teacher} — {site.phone}
                   </a>
                 </div>
               </li>
               <li className="flex items-start gap-4">
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-forest-800 text-gold-300">
-                  <Mail size={20} />
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-brand-800 text-gold-300">
+                  <MapPin size={20} />
                 </div>
                 <div>
-                  <p className="font-semibold text-forest-900">Email</p>
+                  <p className="font-semibold text-brand-900">Location</p>
+                  <p className="text-sm text-ink/70">{site.locationDetail}</p>
+                </div>
+              </li>
+              <li className="flex items-start gap-4">
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-brand-800 text-gold-300">
+                  <Instagram size={20} />
+                </div>
+                <div>
+                  <p className="font-semibold text-brand-900">Instagram</p>
                   <a
-                    href={`mailto:${site.email}`}
-                    className="text-sm text-ink/70 hover:text-forest-800"
+                    href={site.instagram}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-sm text-ink/70 hover:text-brand-800"
                   >
-                    {site.email}
+                    {site.instagramHandle}
                   </a>
                 </div>
               </li>
             </ul>
 
-            <div className="mt-8 overflow-hidden rounded-2xl border border-forest-100">
+            <div className="mt-8 overflow-hidden rounded-2xl border border-brand-100">
               <iframe
-                title="Map — Abu Hurairah Academy, 28 Carrington Street, Bradford"
+                title="Map — AbuHurairah Academy area, Lombard, IL"
                 src={site.mapsEmbed}
                 className="h-72 w-full"
                 loading="lazy"
@@ -83,15 +82,16 @@ export default function Contact() {
           </div>
 
           {/* Form */}
-          <div className="rounded-3xl border border-forest-100 bg-white p-8 sm:p-10">
-            <h2 className="font-display text-2xl text-forest-900">Send Us a Message</h2>
+          <div className="rounded-3xl border border-brand-100 bg-white p-8 sm:p-10">
+            <h2 className="font-display text-2xl text-brand-900">Send Us a Text</h2>
             <p className="mt-2 text-sm text-ink/60">
-              Fill in the form and press send — it opens your email app with the message ready to go.
+              Fill in the form and press send — it opens your messaging app with a text to{' '}
+              {site.phone}, ready to go.
             </p>
             <form onSubmit={handleSubmit} className="mt-6 space-y-4">
               <div className="grid gap-4 sm:grid-cols-2">
                 <label className="block">
-                  <span className="mb-1.5 block text-sm font-medium text-forest-900">Your name</span>
+                  <span className="mb-1.5 block text-sm font-medium text-brand-900">Your name</span>
                   <input
                     required
                     className={inputClass}
@@ -101,26 +101,19 @@ export default function Contact() {
                   />
                 </label>
                 <label className="block">
-                  <span className="mb-1.5 block text-sm font-medium text-forest-900">Phone</span>
+                  <span className="mb-1.5 block text-sm font-medium text-brand-900">
+                    Child's age
+                  </span>
                   <input
                     className={inputClass}
-                    placeholder="Contact number"
-                    value={form.phone}
-                    onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                    placeholder="e.g. 7"
+                    value={form.childAge}
+                    onChange={(e) => setForm({ ...form, childAge: e.target.value })}
                   />
                 </label>
               </div>
               <label className="block">
-                <span className="mb-1.5 block text-sm font-medium text-forest-900">Subject</span>
-                <input
-                  className={inputClass}
-                  placeholder="e.g. Enrolment enquiry"
-                  value={form.subject}
-                  onChange={(e) => setForm({ ...form, subject: e.target.value })}
-                />
-              </label>
-              <label className="block">
-                <span className="mb-1.5 block text-sm font-medium text-forest-900">Message</span>
+                <span className="mb-1.5 block text-sm font-medium text-brand-900">Message</span>
                 <textarea
                   required
                   rows={5}
@@ -134,36 +127,37 @@ export default function Contact() {
                 <Send size={16} /> Send Message
               </button>
             </form>
+            <p className="mt-4 flex items-start gap-2 text-xs text-ink/50">
+              <MessageSquareText size={14} className="mt-0.5 shrink-0" />
+              Prefer to talk? Just call {site.phone} directly.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Donate */}
-      <section id="donate" className="bg-white py-16 sm:py-20">
+      {/* Register */}
+      <section id="register" className="bg-white py-16 sm:py-20">
         <div className="container-content max-w-3xl text-center">
-          <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-gold-500 text-forest-950">
-            <HeartHandshake size={28} />
+          <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-gold-400 text-brand-950">
+            <CalendarCheck size={28} />
           </div>
-          <h2 className="mt-5 font-display text-3xl text-forest-900 sm:text-4xl">
-            Support the Academy
+          <h2 className="mt-5 font-display text-3xl text-brand-900 sm:text-4xl">
+            Registration 2026 Is Open
           </h2>
           <p className="mx-auto mt-4 max-w-2xl leading-relaxed text-ink/70">
-            Abu Hurairah Academy is a voluntary, non-profit registered charity. Every contribution —
-            sadaqah, zakah where applicable, or ongoing lillah support — goes directly towards
-            teaching the children of our community. To donate, or to discuss sponsoring a student,
-            please contact us:
+            School admission is now open for registration 2026 — elementary and middle school
+            programs in a small, supportive Islamic environment. Summer camp (ages {summerCamp.ages})
+            runs {summerCamp.dates}; register by {summerCamp.registerBy}. Space is limited, so get in
+            touch early to reserve your child's spot.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
             <a href={site.phoneHref} className="btn-gold">
               <Phone size={16} /> {site.phone}
             </a>
-            <a href={`mailto:${site.email}?subject=Donation%20enquiry`} className="btn-outline">
-              <Mail size={16} /> {site.email}
+            <a href={site.instagram} target="_blank" rel="noreferrer" className="btn-outline">
+              <Instagram size={16} /> {site.instagramHandle}
             </a>
           </div>
-          <p className="mt-6 text-xs text-ink/50">
-            Bank transfer details and Gift Aid forms are available from the academy office.
-          </p>
         </div>
       </section>
     </>

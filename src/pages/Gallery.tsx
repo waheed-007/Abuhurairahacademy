@@ -1,17 +1,21 @@
+import { Instagram } from 'lucide-react'
 import PageHero from '../components/PageHero'
 import Placeholder from '../components/Placeholder'
 import CTABanner from '../components/CTABanner'
+import { site } from '../data/site'
 
+/* Labels describe the real photos from the academy's Instagram —
+   replace each placeholder with the actual image file when supplied. */
 const photos = [
-  'Quran class in session (images/placeholder-1.jpg)',
-  'Students reciting together (images/placeholder-2.jpg)',
-  'Prize-giving day (images/placeholder-3.jpg)',
-  'Sports afternoon — badminton (images/placeholder-4.jpg)',
-  'Islamic art and craft work (images/placeholder-5.jpg)',
-  'Congregational salaah (images/placeholder-6.jpg)',
-  'Eid celebration at the academy (images/placeholder-7.jpg)',
-  'Table tennis tournament (images/placeholder-8.jpg)',
-  'Youth tarbiyyah circle (images/placeholder-9.jpg)',
+  'Reading corner: students with the classroom library (images/gallery-1.jpg)',
+  'Word-building activity with sentence cards (images/gallery-2.jpg)',
+  'Presentation day at the podium (images/gallery-3.jpg)',
+  'Outdoor games: basketball on the field (images/gallery-4.jpg)',
+  'Arts & crafts session (images/gallery-5.jpg)',
+  'STEM project in action (images/gallery-6.jpg)',
+  'Summer camp group activity (images/gallery-7.jpg)',
+  'Baking and cooking fun (images/gallery-8.jpg)',
+  'Quran and duas circle (images/gallery-9.jpg)',
 ]
 
 export default function Gallery() {
@@ -20,7 +24,7 @@ export default function Gallery() {
       <PageHero
         eyebrow="Academy Pictures"
         title="Moments From Academy Life"
-        intro="A glimpse of learning, worship, sport and celebration at Abu Hurairah Academy. Real photographs will appear here soon, insha'Allah."
+        intro="Learning, making, playing and praying together at AbuHurairah Academy in Lombard."
       />
 
       <section className="py-16 sm:py-20">
@@ -30,16 +34,25 @@ export default function Gallery() {
               <Placeholder key={label} label={label} className="aspect-[4/3] w-full" />
             ))}
           </div>
-          <p className="mt-8 text-center text-sm text-ink/60">
-            Photographs of students are only published with written parental consent, in line with
-            our safeguarding policy.
-          </p>
+          <div className="mt-10 text-center">
+            <a
+              href={site.instagram}
+              target="_blank"
+              rel="noreferrer"
+              className="btn-primary inline-flex"
+            >
+              <Instagram size={18} /> Follow us on Instagram {site.instagramHandle}
+            </a>
+            <p className="mt-4 text-sm text-ink/60">
+              Photos of students are shared with parental consent.
+            </p>
+          </div>
         </div>
       </section>
 
       <CTABanner
-        title="Make Your Own Memories Here"
-        text="The next photo on this wall could be your child's prize day. Get in touch to enrol."
+        title="Your Child's Story Starts Here"
+        text="The next photo could be your child's first day. Registration for 2026 is open now."
       />
     </>
   )

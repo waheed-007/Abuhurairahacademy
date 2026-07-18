@@ -1,4 +1,4 @@
-interface PageHeroProps {
+﻿interface PageHeroProps {
   eyebrow: string
   title: string
   intro: string
@@ -12,7 +12,7 @@ export default function PageHero({ eyebrow, title, intro }: PageHeroProps) {
         <h1 className="mx-auto mt-3 max-w-3xl font-display text-4xl text-white sm:text-5xl">
           {title}
         </h1>
-        <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-forest-100 sm:text-lg">
+        <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-brand-100 sm:text-lg">
           {intro}
         </p>
       </div>

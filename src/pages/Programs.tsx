@@ -1,73 +1,99 @@
-import { BookOpen, GraduationCap, Moon, ScrollText, Sparkles, Users } from 'lucide-react'
+import {
+  BookOpen,
+  Calculator,
+  FlaskConical,
+  Moon,
+  Palette,
+  PenTool,
+  School,
+  Sparkles,
+  Users,
+} from 'lucide-react'
 import PageHero from '../components/PageHero'
 import SectionHeading from '../components/SectionHeading'
 import CTABanner from '../components/CTABanner'
 
 const programs = [
   {
-    icon: BookOpen,
-    title: 'Quran Programme',
+    icon: School,
+    title: 'Elementary School Program',
     tag: 'Core',
     points: [
-      'Qaidah for beginners: letters, sounds and fluency',
-      'Recitation with correct tajweed, taught step by step',
-      'Structured memorisation with daily review (sabaq, sabqi, manzil)',
-      'Small teacher-to-student ratios and differentiated instruction',
-      'Monthly "Gems of the Quran" reflections to build love and understanding',
-    ],
-  },
-  {
-    icon: Moon,
-    title: 'Islamic Studies',
-    tag: 'Core',
-    points: [
-      'Aqeedah: knowing Allah with certainty and love',
-      'Fiqh of daily worship: wudu, salaah, fasting',
-      'Seerah and stories of the Prophets, told to inspire',
-      'Masnoon duas and adhkar for everyday life',
-      'Akhlaq and adab: character before everything',
+      'Small-group classes with daily individual attention',
+      'Quran, tajweed and duas built into every school day',
+      'Reading and writing through the Readers & Writers Workshop',
+      'Math foundations with daily practice and challenges',
+      'Play, art and outdoor time — childhood is part of the curriculum',
     ],
   },
   {
     icon: Users,
-    title: 'Youth Tarbiyyah Programme',
-    tag: 'Boys & Girls',
+    title: 'Middle School Program',
+    tag: 'Core',
     points: [
-      'Separate, age-appropriate groups for boys and girls',
-      'Mentoring that connects young people to the mosque',
-      'Discussion circles on real challenges young Muslims face',
-      'Leadership, service and confidence-building activities',
-      'Sports and recreation woven into the programme',
+      'Rigorous academics taught by a teacher with Secondary Math and English endorsements',
+      'Deeper Islamic studies: seerah, values and personal practice',
+      'Writing workshops that prepare students for high school',
+      'STEM projects that build real problem-solving skills',
+      'A supportive setting where teens are known and encouraged',
     ],
   },
   {
-    icon: GraduationCap,
-    title: 'Adult Learning Programme',
-    tag: 'Outside academy hours',
+    icon: BookOpen,
+    title: 'Islamic Learning',
+    tag: 'Every day',
     points: [
-      'Classes scheduled outside normal academy hours',
-      'Quran reading and tajweed improvement for adults',
-      'Essential knowledge: purification, prayer and daily fiqh',
-      'A welcoming setting for beginners and returners alike',
+      'Quran with correct tajweed, recited daily',
+      'Masnoon duas for everyday life',
+      'Seerah class: the life of the Prophet ﷺ, told to inspire',
+      'Wudu and Duhr salat prayed together at school',
+      'Islamic values woven through every subject',
+    ],
+  },
+  {
+    icon: Sparkles,
+    title: 'Enrichment',
+    tag: 'Beyond academics',
+    points: [
+      'Art: oil pastels, crayons, watercolor, play dough, ceramics and collage',
+      'Needle work: bracelet making, knitting and crochet',
+      'Cooking and baking projects',
+      'Outdoor activities and team games',
+      'Spoken Persian sessions',
     ],
   },
 ]
 
-const approach = [
+const academics = [
   {
-    icon: ScrollText,
-    title: 'Clear Syllabus & Reports',
-    text: 'Every class follows a written syllabus. Parents receive homework, progress updates, written reports and one-to-one consultations.',
+    icon: Calculator,
+    title: 'Math',
+    text: 'From number sense to secondary-level math, taught by a certified teacher with a Secondary Math endorsement — plus daily Math Challenge problems.',
   },
   {
-    icon: Sparkles,
-    title: 'Love Before Memorisation',
-    text: 'We build a genuine connection with the Quran first — children who love the Book keep it for life.',
+    icon: PenTool,
+    title: 'English Language Arts',
+    text: 'The Lucy Calkins Readers & Writers Workshop model, delivered by a trained Reader and Writer Specialist, builds strong, confident readers and writers.',
+  },
+  {
+    icon: FlaskConical,
+    title: 'STEM',
+    text: 'Water experiments, magnets, balancing and construction — hands-on projects that turn curiosity into understanding.',
+  },
+  {
+    icon: Moon,
+    title: 'Islamic Studies',
+    text: 'Quran, tajweed, duas and seerah as core subjects — with an Islamic worldview carried into everything else the students learn.',
+  },
+  {
+    icon: Palette,
+    title: 'Arts & Crafts',
+    text: 'Regular creative work across many media, because making things by hand builds patience, focus and joy.',
   },
   {
     icon: Users,
-    title: 'Small Groups',
-    text: 'Low teacher-student ratios mean recitation is heard, corrected and praised every single lesson.',
+    title: 'Physical Education',
+    text: 'Soccer, basketball, relay races and more — healthy bodies supporting healthy minds, with swimming sessions when available.',
   },
 ]
 
@@ -76,27 +102,33 @@ export default function Programs() {
     <>
       <PageHero
         eyebrow="Programs & Learning"
-        title="A Complete Path of Sacred Learning"
-        intro="From a child's first Qaidah lesson to youth tarbiyyah and adult classes — structured, loving and rooted in the Quran and Sunnah."
+        title="Strong Islamic Values, Comprehensive Academics"
+        intro="An Islamic school program for elementary and middle school students — where deen and a full secular curriculum are taught side by side, in small groups."
       />
 
       <section className="py-16 sm:py-20">
         <div className="container-content grid gap-8 lg:grid-cols-2">
           {programs.map((p) => (
-            <div key={p.title} className="rounded-3xl border border-forest-100 bg-white p-8">
+            <div key={p.title} className="rounded-3xl border border-brand-100 bg-white p-8">
               <div className="flex items-center justify-between gap-4">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-forest-800 text-gold-300">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-800 text-gold-300">
                   <p.icon size={24} />
                 </div>
                 <span className="rounded-full bg-gold-100 px-3 py-1 text-xs font-semibold text-gold-700">
                   {p.tag}
                 </span>
               </div>
-              <h2 className="mt-5 font-display text-2xl text-forest-900">{p.title}</h2>
+              <h2 className="mt-5 font-display text-2xl text-brand-900">{p.title}</h2>
               <ul className="mt-4 space-y-2.5">
                 {p.points.map((point) => (
-                  <li key={point} className="flex items-start gap-2.5 text-sm leading-relaxed text-ink/75">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gold-500" aria-hidden />
+                  <li
+                    key={point}
+                    className="flex items-start gap-2.5 text-sm leading-relaxed text-ink/75"
+                  >
+                    <span
+                      className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gold-500"
+                      aria-hidden
+                    />
                     {point}
                   </li>
                 ))}
@@ -109,17 +141,17 @@ export default function Programs() {
       <section className="bg-white py-16 sm:py-20">
         <div className="container-content">
           <SectionHeading
-            eyebrow="How We Teach"
-            title="Structured, Personal, Joyful"
-            intro="Method matters as much as material. Three principles run through every classroom at the academy."
+            eyebrow="Academics"
+            title="What Your Child Will Study"
+            intro="Every subject is taught to a professional standard, in a setting small enough that no question goes unasked."
           />
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
-            {approach.map((a) => (
-              <div key={a.title} className="rounded-2xl border border-forest-100 bg-cream p-6 text-center">
-                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-forest-800 text-gold-300">
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {academics.map((a) => (
+              <div key={a.title} className="rounded-2xl border border-brand-100 bg-cream p-6">
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand-800 text-gold-300">
                   <a.icon size={22} />
                 </div>
-                <h3 className="mt-4 font-display text-xl text-forest-900">{a.title}</h3>
+                <h3 className="mt-4 font-display text-xl text-brand-900">{a.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-ink/70">{a.text}</p>
               </div>
             ))}
@@ -128,8 +160,8 @@ export default function Programs() {
       </section>
 
       <CTABanner
-        title="Ready to Begin?"
-        text="Tell us your child's age and previous learning, and we will recommend the right class to start with."
+        title="Which Program Fits Your Child?"
+        text="Tell us your child's age and current level, and we'll recommend the right starting point. Registration for 2026 is open now."
       />
     </>
   )
