@@ -1,0 +1,30 @@
+
+# Dependencies & build
+node_modules
+dist
+*.local
+*.tsbuildinfo
+
+# Logs
+npm-debug.log*
+
+# Editor
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+
+# InsForge & AI agent skills
+.insforge
+.agent
+.agents
+.augment
+.claude
+.cline
+.github/copilot*
+.kilocode
+.qoder
+.qwen
+.roo
+.trae
+.windsurf
