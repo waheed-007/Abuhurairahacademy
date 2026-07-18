@@ -14,6 +14,7 @@ import {
 import PageHero from '../components/PageHero'
 import SectionHeading from '../components/SectionHeading'
 import CTABanner from '../components/CTABanner'
+import { BentoCard, BentoGrid } from '../components/Bento'
 import { site, summerCamp } from '../data/site'
 
 const activities = [
@@ -129,17 +130,17 @@ export default function SummerCamp() {
             title="Something to Love Every Single Day"
             intro="Mornings start with Quran, tajweed and duas — then the fun fans out across art, STEM, sports and more."
           />
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <BentoGrid className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {activities.map((a) => (
-              <div key={a.title} className="rounded-2xl border border-brand-100 bg-cream p-6">
+              <BentoCard key={a.title} className="rounded-2xl border border-brand-100 bg-cream p-6">
                 <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand-800 text-gold-300">
                   <a.icon size={22} />
                 </div>
                 <h3 className="mt-4 font-display text-xl text-brand-900">{a.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-ink/70">{a.text}</p>
-              </div>
+              </BentoCard>
             ))}
-          </div>
+          </BentoGrid>
 
           <div className="mt-10 flex items-start gap-3 rounded-2xl border border-gold-200 bg-gold-100/60 p-5 text-sm leading-relaxed text-ink/80">
             <Info size={20} className="mt-0.5 shrink-0 text-gold-600" />

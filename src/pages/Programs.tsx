@@ -12,6 +12,7 @@ import {
 import PageHero from '../components/PageHero'
 import SectionHeading from '../components/SectionHeading'
 import CTABanner from '../components/CTABanner'
+import { BentoCard, BentoGrid } from '../components/Bento'
 
 const programs = [
   {
@@ -107,9 +108,9 @@ export default function Programs() {
       />
 
       <section className="py-16 sm:py-20">
-        <div className="container-content grid gap-8 lg:grid-cols-2">
+        <BentoGrid className="container-content grid gap-8 lg:grid-cols-2">
           {programs.map((p) => (
-            <div key={p.title} className="rounded-3xl border border-brand-100 bg-white p-8">
+            <BentoCard key={p.title} className="rounded-3xl border border-brand-100 bg-white p-8">
               <div className="flex items-center justify-between gap-4">
                 <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-800 text-gold-300">
                   <p.icon size={24} />
@@ -133,9 +134,9 @@ export default function Programs() {
                   </li>
                 ))}
               </ul>
-            </div>
+            </BentoCard>
           ))}
-        </div>
+        </BentoGrid>
       </section>
 
       <section className="bg-white py-16 sm:py-20">
@@ -145,17 +146,17 @@ export default function Programs() {
             title="What Your Child Will Study"
             intro="Every subject is taught to a professional standard, in a setting small enough that no question goes unasked."
           />
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <BentoGrid className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {academics.map((a) => (
-              <div key={a.title} className="rounded-2xl border border-brand-100 bg-cream p-6">
+              <BentoCard key={a.title} className="rounded-2xl border border-brand-100 bg-cream p-6">
                 <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand-800 text-gold-300">
                   <a.icon size={22} />
                 </div>
                 <h3 className="mt-4 font-display text-xl text-brand-900">{a.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-ink/70">{a.text}</p>
-              </div>
+              </BentoCard>
             ))}
-          </div>
+          </BentoGrid>
         </div>
       </section>
 

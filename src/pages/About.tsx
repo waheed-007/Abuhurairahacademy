@@ -1,8 +1,8 @@
 import { Award, BookHeart, GraduationCap, HandHeart, Ruler, Target, Waves } from 'lucide-react'
 import PageHero from '../components/PageHero'
 import SectionHeading from '../components/SectionHeading'
-import Placeholder from '../components/Placeholder'
 import CTABanner from '../components/CTABanner'
+import { BentoCard, BentoGrid } from '../components/Bento'
 import { facilities, site } from '../data/site'
 
 const values = [
@@ -78,9 +78,10 @@ export default function About() {
             </div>
           </div>
           <div className="space-y-6">
-            <Placeholder
-              label="Academy photo goes here: classroom / library corner (images/placeholder-about.jpg)"
-              className="aspect-[4/3] w-full"
+            <img
+              src="/images/intro.jpg"
+              alt="The academy's classroom library with a world map and sorted book bins"
+              className="aspect-[4/3] w-full rounded-2xl border border-brand-100 object-cover shadow-xl shadow-brand-200/60"
             />
             <div className="rounded-2xl border border-gold-200 bg-gold-100/60 p-6">
               <h3 className="font-display text-lg text-brand-900">Our Facilities</h3>
@@ -99,9 +100,10 @@ export default function About() {
       {/* About the teacher */}
       <section className="bg-white py-16 sm:py-20">
         <div className="container-content grid items-center gap-10 lg:grid-cols-2">
-          <Placeholder
-            label="Photo goes here: Ms. Mariam teaching (images/placeholder-teacher.jpg)"
-            className="aspect-[4/3] w-full"
+          <img
+            src="/images/teacher.jpg"
+            alt="Ms. Mariam with her students outdoors, holding bouquets of flowers"
+            className="aspect-square w-full rounded-2xl border border-brand-100 object-cover shadow-xl shadow-brand-200/60"
           />
           <div>
             <SectionHeading
@@ -130,9 +132,9 @@ export default function About() {
             title="What We Stand For"
             intro="Four commitments shape every school day at AbuHurairah Academy."
           />
-          <div className="mt-12 grid gap-6 sm:grid-cols-2">
+          <BentoGrid className="mt-12 grid gap-6 sm:grid-cols-2">
             {values.map((v) => (
-              <div
+              <BentoCard
                 key={v.title}
                 className="flex gap-4 rounded-2xl border border-brand-100 bg-white p-6"
               >
@@ -143,9 +145,9 @@ export default function About() {
                   <h3 className="font-display text-xl text-brand-900">{v.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-ink/70">{v.text}</p>
                 </div>
-              </div>
+              </BentoCard>
             ))}
-          </div>
+          </BentoGrid>
         </div>
       </section>
 

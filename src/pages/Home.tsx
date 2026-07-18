@@ -14,8 +14,8 @@ import {
   Users,
 } from 'lucide-react'
 import SectionHeading from '../components/SectionHeading'
-import Placeholder from '../components/Placeholder'
 import CTABanner from '../components/CTABanner'
+import { BentoCard, BentoGrid } from '../components/Bento'
 import { facilities, site, summerCamp } from '../data/site'
 
 const provides = [
@@ -113,9 +113,10 @@ export default function Home() {
       {/* Intro */}
       <section className="py-16 sm:py-20">
         <div className="container-content grid items-center gap-10 lg:grid-cols-2">
-          <Placeholder
-            label="Academy photo goes here: classroom / word-building activity (images/placeholder-intro.jpg)"
-            className="aspect-[4/3] w-full"
+          <img
+            src="/images/intro.jpg"
+            alt="The academy's reading corner with a world map, book bins and 'Our World of Learning' display"
+            className="aspect-square w-full rounded-2xl border border-brand-100 object-cover shadow-xl shadow-brand-200/60"
           />
           <div>
             <SectionHeading
@@ -152,20 +153,20 @@ export default function Home() {
             title="Deen and Dunya, Taught Together"
             intro="An Islamic school program that integrates strong Islamic values and education alongside a comprehensive secular curriculum."
           />
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <BentoGrid className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {provides.map((item) => (
-              <div
+              <BentoCard
                 key={item.title}
-                className="rounded-2xl border border-brand-100 bg-cream p-6 transition hover:-translate-y-1 hover:shadow-lg hover:shadow-brand-100"
+                className="rounded-2xl border border-brand-100 bg-cream p-6"
               >
                 <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand-800 text-gold-300">
                   <item.icon size={22} />
                 </div>
                 <h3 className="mt-4 font-display text-xl text-brand-900">{item.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-ink/70">{item.text}</p>
-              </div>
+              </BentoCard>
             ))}
-          </div>
+          </BentoGrid>
 
           {/* Facilities strip */}
           <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">

@@ -19,16 +19,28 @@
     @apply inline-flex items-center justify-center gap-2 rounded-full bg-brand-800 px-6 py-3 text-sm font-semibold text-white transition hover:bg-brand-700 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2;
   }
   .btn-gold {
-    @apply inline-flex items-center justify-center gap-2 rounded-full bg-gold-400 px-6 py-3 text-sm font-semibold text-brand-950 transition hover:bg-gold-300 focus:outline-none focus:ring-2 focus:ring-gold-400 focus:ring-offset-2;
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-gold-300 to-gold-400 px-6 py-3 text-sm font-semibold text-brand-950 shadow-md shadow-gold-400/30 transition hover:from-gold-200 hover:to-gold-300 hover:shadow-lg hover:shadow-gold-400/40 focus:outline-none focus:ring-2 focus:ring-gold-400 focus:ring-offset-2;
   }
   .btn-outline {
     @apply inline-flex items-center justify-center gap-2 rounded-full border border-brand-300 bg-white/60 px-6 py-3 text-sm font-semibold text-brand-800 transition hover:border-brand-500 hover:bg-white;
   }
 }
 
-/* Subtle dotted pattern used on dark teal bands */
+/* Dark teal band: gold-dot texture over a soft radial glow */
 .pattern-dark {
-  background-color: #134442;
-  background-image: radial-gradient(circle at 1px 1px, rgba(230, 185, 60, 0.2) 1px, transparent 0);
-  background-size: 26px 26px;
+  background-color: #113c3a;
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(230, 185, 60, 0.2) 1px, transparent 0),
+    radial-gradient(ellipse 90% 70% at 20% 0%, rgba(77, 216, 192, 0.16), transparent 60%),
+    radial-gradient(ellipse 70% 60% at 90% 100%, rgba(230, 185, 60, 0.1), transparent 55%),
+    linear-gradient(150deg, #16504d 0%, #113c3a 55%, #0a2827 100%);
+  background-size:
+    26px 26px,
+    100% 100%,
+    100% 100%,
+    100% 100%;
+}
+
+::selection {
+  background: rgba(77, 216, 192, 0.35);
 }

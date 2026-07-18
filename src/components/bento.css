@@ -1,0 +1,89 @@
+/* Teal/gold theme styles for the Bento card effects (adapted from React Bits MagicBento) */
+
+.magic-bento-card {
+  position: relative;
+  overflow: hidden;
+  --glow-x: 50%;
+  --glow-y: 50%;
+  --glow-intensity: 0;
+  --glow-radius: 220px;
+  transition: box-shadow 0.3s ease;
+  will-change: transform;
+}
+
+/* Border glow that follows the cursor */
+.magic-bento-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  background: radial-gradient(
+    var(--glow-radius) circle at var(--glow-x) var(--glow-y),
+    rgba(42, 169, 155, calc(var(--glow-intensity) * 0.9)) 0%,
+    rgba(230, 185, 60, calc(var(--glow-intensity) * 0.45)) 35%,
+    transparent 65%
+  );
+  border-radius: inherit;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.magic-bento-card:hover {
+  box-shadow:
+    0 10px 30px rgba(19, 68, 66, 0.15),
+    0 0 30px rgba(42, 169, 155, 0.15);
+}
+
+/* Gold floating particles */
+.bento-particle {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(230, 185, 60, 1);
+  box-shadow: 0 0 8px rgba(230, 185, 60, 0.7);
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* Click ripple */
+.bento-ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(42, 169, 155, 0.35) 0%,
+    rgba(230, 185, 60, 0.18) 30%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Cursor-following spotlight (kept under the sticky header, z-50) */
+.bento-spotlight {
+  position: fixed;
+  width: 700px;
+  height: 700px;
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(
+    circle,
+    rgba(42, 169, 155, 0.1) 0%,
+    rgba(42, 169, 155, 0.05) 25%,
+    rgba(230, 185, 60, 0.03) 45%,
+    transparent 70%
+  );
+  z-index: 40;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  will-change: transform, opacity;
+}

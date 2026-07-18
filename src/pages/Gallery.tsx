@@ -1,21 +1,19 @@
 import { Instagram } from 'lucide-react'
 import PageHero from '../components/PageHero'
-import Placeholder from '../components/Placeholder'
 import CTABanner from '../components/CTABanner'
+import { BentoCard, BentoGrid } from '../components/Bento'
 import { site } from '../data/site'
 
-/* Labels describe the real photos from the academy's Instagram —
-   replace each placeholder with the actual image file when supplied. */
 const photos = [
-  'Reading corner: students with the classroom library (images/gallery-1.jpg)',
-  'Word-building activity with sentence cards (images/gallery-2.jpg)',
-  'Presentation day at the podium (images/gallery-3.jpg)',
-  'Outdoor games: basketball on the field (images/gallery-4.jpg)',
-  'Arts & crafts session (images/gallery-5.jpg)',
-  'STEM project in action (images/gallery-6.jpg)',
-  'Summer camp group activity (images/gallery-7.jpg)',
-  'Baking and cooking fun (images/gallery-8.jpg)',
-  'Quran and duas circle (images/gallery-9.jpg)',
+  { src: '/images/gallery-1.jpg', alt: 'Classroom library corner with a world map and "Our World of Learning" display' },
+  { src: '/images/gallery-2.jpg', alt: 'Reading nook shelf with picture books for students' },
+  { src: '/images/gallery-3.jpg', alt: 'Writing workshop table with prewriting, drafting and editing anchor charts' },
+  { src: '/images/gallery-4.jpg', alt: 'Bookshelf display of leveled reading bins and picture books' },
+  { src: '/images/gallery-5.jpg', alt: 'Classroom library with sorted book bins by subject' },
+  { src: '/images/gallery-6.jpg', alt: 'Whiteboard and study table in the classroom' },
+  { src: '/images/gallery-7.jpg', alt: 'Classroom with whiteboard, round table and chairs' },
+  { src: '/images/gallery-8.jpg', alt: "Teacher's desk with a globe and classroom storage" },
+  { src: '/images/gallery-9.jpg', alt: 'Hallway alphabet chart for early learners' },
 ]
 
 export default function Gallery() {
@@ -24,16 +22,22 @@ export default function Gallery() {
       <PageHero
         eyebrow="Academy Pictures"
         title="Moments From Academy Life"
-        intro="Learning, making, playing and praying together at AbuHurairah Academy in Lombard."
+        intro="A look inside AbuHurairah Academy in Lombard — our classrooms, library and learning spaces."
       />
 
       <section className="py-16 sm:py-20">
         <div className="container-content">
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {photos.map((label) => (
-              <Placeholder key={label} label={label} className="aspect-[4/3] w-full" />
+          <BentoGrid className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {photos.map((photo) => (
+              <BentoCard key={photo.src} className="aspect-[4/3] w-full rounded-2xl border border-brand-100">
+                <img
+                  src={photo.src}
+                  alt={photo.alt}
+                  className="h-full w-full rounded-2xl object-cover"
+                />
+              </BentoCard>
             ))}
-          </div>
+          </BentoGrid>
           <div className="mt-10 text-center">
             <a
               href={site.instagram}
