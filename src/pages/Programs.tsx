@@ -13,6 +13,7 @@ import PageHero from '../components/PageHero'
 import SectionHeading from '../components/SectionHeading'
 import CTABanner from '../components/CTABanner'
 import { BentoCard, BentoGrid } from '../components/Bento'
+import ScrollFloat from '../components/ScrollFloat'
 
 const programs = [
   {
@@ -120,7 +121,9 @@ export default function Programs() {
                   {p.tag}
                 </span>
               </div>
-              <h2 className="mt-5 font-display text-2xl text-brand-900">{p.title}</h2>
+              <ScrollFloat as="h2" containerClassName="mt-5" textClassName="font-display text-2xl text-brand-900">
+                {p.title}
+              </ScrollFloat>
               <ul className="mt-4 space-y-2.5">
                 {p.points.map((point) => (
                   <li

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { CalendarCheck, Instagram, MapPin, MessageSquareText, Phone, Send } from 'lucide-react'
 import PageHero from '../components/PageHero'
 import SectionHeading from '../components/SectionHeading'
+import ScrollFloat from '../components/ScrollFloat'
 import { site, summerCamp } from '../data/site'
 
 const inputClass =
@@ -73,7 +74,9 @@ export default function Contact() {
 
           {/* Form */}
           <div className="rounded-3xl border border-brand-100 bg-white p-8 sm:p-10">
-            <h2 className="font-display text-2xl text-brand-900">Send Us a Text</h2>
+            <ScrollFloat as="h2" textClassName="font-display text-2xl text-brand-900">
+              Send Us a Text
+            </ScrollFloat>
             <p className="mt-2 text-sm text-ink/60">
               Fill in the form and press send — it opens your messaging app with a text to the
               academy, ready to go.
@@ -131,9 +134,13 @@ export default function Contact() {
           <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-gold-400 text-brand-950">
             <CalendarCheck size={28} />
           </div>
-          <h2 className="mt-5 font-display text-3xl text-brand-900 sm:text-4xl">
+          <ScrollFloat
+            as="h2"
+            containerClassName="mt-5"
+            textClassName="font-display text-3xl text-brand-900 sm:text-4xl"
+          >
             Registration 2026 Is Open
-          </h2>
+          </ScrollFloat>
           <p className="mx-auto mt-4 max-w-2xl leading-relaxed text-ink/70">
             School admission is now open for registration 2026 — elementary and middle school
             programs in a small, supportive Islamic environment. Summer camp (ages {summerCamp.ages})

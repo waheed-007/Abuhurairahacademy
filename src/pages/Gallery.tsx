@@ -2,6 +2,7 @@ import { Instagram } from 'lucide-react'
 import PageHero from '../components/PageHero'
 import CTABanner from '../components/CTABanner'
 import { BentoCard, BentoGrid } from '../components/Bento'
+import PhotoGlare from '../components/PhotoGlare'
 import { site } from '../data/site'
 
 const photos = [
@@ -30,11 +31,7 @@ export default function Gallery() {
           <BentoGrid className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {photos.map((photo) => (
               <BentoCard key={photo.src} className="aspect-[4/3] w-full rounded-2xl border border-brand-100">
-                <img
-                  src={photo.src}
-                  alt={photo.alt}
-                  className="h-full w-full rounded-2xl object-cover"
-                />
+                <PhotoGlare src={photo.src} alt={photo.alt} className="h-full w-full" />
               </BentoCard>
             ))}
           </BentoGrid>

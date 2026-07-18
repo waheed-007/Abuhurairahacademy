@@ -1,0 +1,14 @@
+/* ScrollFloat — animation-only wrapper. Typography comes from
+   textClassName/containerClassName at the call site, not from here. */
+
+.scroll-float {
+  overflow: hidden;
+}
+
+.scroll-float-text {
+  display: inline-block;
+}
+
+.char {
+  display: inline-block;
+}

@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { Phone, Sparkles } from 'lucide-react'
+import ScrollFloat from './ScrollFloat'
 
 interface CTABannerProps {
   title?: string
@@ -13,7 +14,13 @@ export default function CTABanner({
   return (
     <section className="pattern-dark">
       <div className="container-content flex flex-col items-center gap-6 py-14 text-center">
-        <h2 className="max-w-2xl font-display text-3xl text-white sm:text-4xl">{title}</h2>
+        <ScrollFloat
+          as="h2"
+          containerClassName="max-w-2xl"
+          textClassName="font-display text-3xl text-white sm:text-4xl"
+        >
+          {title}
+        </ScrollFloat>
         <p className="max-w-2xl text-brand-100">{text}</p>
         <div className="flex flex-wrap items-center justify-center gap-3">
           <Link to="/contact#register" className="btn-gold">

@@ -17,6 +17,8 @@ import SectionHeading from '../components/SectionHeading'
 import CTABanner from '../components/CTABanner'
 import { BentoCard, BentoGrid } from '../components/Bento'
 import CurvedLoop from '../components/CurvedLoop'
+import ScrollFloat from '../components/ScrollFloat'
+import PhotoGlare from '../components/PhotoGlare'
 import { facilities, site, summerCamp } from '../data/site'
 
 const provides = [
@@ -71,9 +73,13 @@ export default function Home() {
             <span className="inline-flex items-center gap-2 rounded-full bg-gold-400 px-4 py-1.5 text-xs font-bold uppercase tracking-wide text-brand-950">
               <Sun size={14} /> School Admission Now Open for 2026
             </span>
-            <h1 className="mt-5 font-display text-4xl leading-tight text-white sm:text-5xl lg:text-6xl">
+            <ScrollFloat
+              as="h1"
+              containerClassName="mt-5"
+              textClassName="font-display text-4xl leading-tight text-white sm:text-5xl lg:text-6xl"
+            >
               Islamic School, Bigger Achievements, Smaller Setting
-            </h1>
+            </ScrollFloat>
             <p className="mt-5 max-w-xl text-lg leading-relaxed text-brand-100">
               AbuHurairah Academy in {site.location} offers an elementary and middle school Islamic
               program in a small, supportive environment that promotes higher student achievement —
@@ -91,10 +97,10 @@ export default function Home() {
               </Link>
             </div>
           </div>
-          <img
+          <PhotoGlare
             src="/images/hero.jpg"
             alt="Children doing hands-on activities together around a table at the academy"
-            className="aspect-square w-full rounded-2xl border-4 border-brand-700/60 object-cover shadow-2xl shadow-brand-950/40"
+            className="aspect-square w-full border-4 border-brand-700/60 shadow-2xl shadow-brand-950/40"
           />
         </div>
       </section>
@@ -114,10 +120,10 @@ export default function Home() {
       {/* Intro */}
       <section className="py-16 sm:py-20">
         <div className="container-content grid items-center gap-10 lg:grid-cols-2">
-          <img
+          <PhotoGlare
             src="/images/intro.jpg"
             alt="The academy's reading corner with a world map, book bins and 'Our World of Learning' display"
-            className="aspect-square w-full rounded-2xl border border-brand-100 object-cover shadow-xl shadow-brand-200/60"
+            className="aspect-square w-full border border-brand-100 shadow-xl shadow-brand-200/60"
           />
           <div>
             <SectionHeading

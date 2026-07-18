@@ -1,3 +1,5 @@
+import ScrollFloat from './ScrollFloat'
+
 interface PageHeroProps {
   eyebrow: string
   title: string
@@ -23,9 +25,13 @@ export default function PageHero({ eyebrow, title, intro, videoBg }: PageHeroPro
       )}
       <div className="container-content relative py-16 text-center sm:py-20">
         <p className="text-xs font-semibold uppercase tracking-[0.25em] text-gold-300">{eyebrow}</p>
-        <h1 className="mx-auto mt-3 max-w-3xl font-display text-4xl text-white sm:text-5xl">
+        <ScrollFloat
+          as="h1"
+          containerClassName="mx-auto mt-3 max-w-3xl"
+          textClassName="font-display text-4xl text-white sm:text-5xl"
+        >
           {title}
-        </h1>
+        </ScrollFloat>
         <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-brand-100 sm:text-lg">
           {intro}
         </p>

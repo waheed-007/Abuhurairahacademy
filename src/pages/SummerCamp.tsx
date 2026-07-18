@@ -15,6 +15,7 @@ import PageHero from '../components/PageHero'
 import SectionHeading from '../components/SectionHeading'
 import CTABanner from '../components/CTABanner'
 import { BentoCard, BentoGrid } from '../components/Bento'
+import ScrollFloat from '../components/ScrollFloat'
 import RegistrationForm from '../components/RegistrationForm'
 import { summerCamp } from '../data/site'
 
@@ -108,7 +109,9 @@ export default function SummerCamp() {
           {/* Daily schedule */}
           <div className="overflow-hidden rounded-3xl border border-brand-100 bg-white">
             <div className="pattern-dark flex items-center justify-between px-6 py-5 sm:px-8">
-              <h2 className="font-display text-2xl text-white">Daily Schedule</h2>
+              <ScrollFloat as="h2" textClassName="font-display text-2xl text-white">
+                Daily Schedule
+              </ScrollFloat>
               <Clock className="text-gold-300" size={26} />
             </div>
             <ul className="divide-y divide-brand-100">
