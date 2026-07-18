@@ -35,17 +35,6 @@ export default function Contact() {
             <ul className="mt-6 space-y-5">
               <li className="flex items-start gap-4">
                 <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-brand-800 text-gold-300">
-                  <Phone size={20} />
-                </div>
-                <div>
-                  <p className="font-semibold text-brand-900">Call or Text</p>
-                  <a href={site.phoneHref} className="text-sm text-ink/70 hover:text-brand-800">
-                    {site.teacher} — {site.phone}
-                  </a>
-                </div>
-              </li>
-              <li className="flex items-start gap-4">
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-brand-800 text-gold-300">
                   <MapPin size={20} />
                 </div>
                 <div>
@@ -86,8 +75,8 @@ export default function Contact() {
           <div className="rounded-3xl border border-brand-100 bg-white p-8 sm:p-10">
             <h2 className="font-display text-2xl text-brand-900">Send Us a Text</h2>
             <p className="mt-2 text-sm text-ink/60">
-              Fill in the form and press send — it opens your messaging app with a text to{' '}
-              {site.phone}, ready to go.
+              Fill in the form and press send — it opens your messaging app with a text to the
+              academy, ready to go.
             </p>
             <form onSubmit={handleSubmit} className="mt-6 space-y-4">
               <div className="grid gap-4 sm:grid-cols-2">
@@ -130,7 +119,7 @@ export default function Contact() {
             </form>
             <p className="mt-4 flex items-start gap-2 text-xs text-ink/50">
               <MessageSquareText size={14} className="mt-0.5 shrink-0" />
-              Prefer to talk? Just call {site.phone} directly.
+              Prefer to talk? Our number is just below, in the Registration section.
             </p>
           </div>
         </div>

@@ -153,7 +153,7 @@ export default function About() {
 
       <CTABanner
         title="Come Meet Us"
-        text={`The best way to know the academy is to talk to us. Call or text ${site.teacher} at ${site.phone}.`}
+        text="The best way to know the academy is to talk to us. Get in touch to arrange a visit."
       />
     </>
   )

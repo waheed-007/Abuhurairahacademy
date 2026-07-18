@@ -15,7 +15,8 @@ import PageHero from '../components/PageHero'
 import SectionHeading from '../components/SectionHeading'
 import CTABanner from '../components/CTABanner'
 import { BentoCard, BentoGrid } from '../components/Bento'
-import { site, summerCamp } from '../data/site'
+import RegistrationForm from '../components/RegistrationForm'
+import { summerCamp } from '../data/site'
 
 const activities = [
   {
@@ -145,11 +146,8 @@ export default function SummerCamp() {
           <div className="mt-10 flex items-start gap-3 rounded-2xl border border-gold-200 bg-gold-100/60 p-5 text-sm leading-relaxed text-ink/80">
             <Info size={20} className="mt-0.5 shrink-0 text-gold-600" />
             <p>
-              To register or ask a question, call or text {site.teacher} at{' '}
-              <a href={site.phoneHref} className="font-semibold text-brand-800 underline">
-                {site.phone}
-              </a>
-              . Space is limited — register by {summerCamp.registerBy}.
+              Ready to join us? Scroll down to reserve your child's spot — space is limited, so
+              register by {summerCamp.registerBy}.
             </p>
           </div>
         </div>
@@ -160,25 +158,25 @@ export default function SummerCamp() {
         <div className="container-content">
           <SectionHeading
             eyebrow="Registration"
-            title="How to Reserve Your Child's Spot"
-            intro={`Registration closes ${summerCamp.registerBy}. See you on June 8, insha'Allah!`}
+            title="Reserve Your Child's Spot"
+            intro={`Registration closes ${summerCamp.registerBy}. Please submit a separate form for each child. See you on June 8, insha'Allah!`}
           />
           <div className="mx-auto mt-10 grid max-w-4xl gap-6 md:grid-cols-3">
             {[
               {
                 step: '1',
                 title: 'Fill Out the Form',
-                text: 'Complete the registration form below — please fill out a separate form for each child.',
+                text: 'Enter your child and parent details below.',
               },
               {
                 step: '2',
-                title: 'Pay via Zelle',
-                text: `Send your payment via Zelle to ${summerCamp.zelle} to secure your child's spot. Add the ${summerCamp.materialsFee} materials fee to your module price.`,
+                title: 'Pay by Card',
+                text: `Secure checkout for your chosen module, plus the ${summerCamp.materialsFee} materials fee.`,
               },
               {
                 step: '3',
                 title: "You're In!",
-                text: `That's it — camp begins June 8. Questions? Call or text ${site.phone}.`,
+                text: "That's it — camp begins June 8. We'll send a confirmation shortly after.",
               },
             ].map((s) => (
               <div
@@ -194,37 +192,15 @@ export default function SummerCamp() {
             ))}
           </div>
 
-          {summerCamp.registrationFormUrl ? (
-            <div className="mx-auto mt-10 max-w-3xl overflow-hidden rounded-3xl border border-brand-100 bg-white">
-              <div className="pattern-dark px-6 py-4 text-center">
-                <h3 className="font-display text-xl text-white">
-                  {summerCamp.name} 2026 — Registration Form
-                </h3>
-              </div>
-              <iframe
-                title="Summer camp registration form"
-                src={summerCamp.registrationFormUrl}
-                className="h-[1200px] w-full"
-                loading="lazy"
-              >
-                Loading…
-              </iframe>
-            </div>
-          ) : (
-            <p className="mx-auto mt-10 max-w-xl text-center text-sm text-ink/60">
-              The online registration form will appear here shortly. In the meantime, call or text{' '}
-              <a href={site.phoneHref} className="font-semibold text-brand-800 underline">
-                {site.phone}
-              </a>{' '}
-              to register.
-            </p>
-          )}
+          <div className="mt-10">
+            <RegistrationForm />
+          </div>
         </div>
       </section>
 
       <CTABanner
         title="Reserve Your Child's Summer Spot"
-        text={`${summerCamp.dates}, ages ${summerCamp.ages}. Register by ${summerCamp.registerBy} — call or text ${site.phone}.`}
+        text={`${summerCamp.dates}, ages ${summerCamp.ages}. Register by ${summerCamp.registerBy} above.`}
       />
     </>
   )

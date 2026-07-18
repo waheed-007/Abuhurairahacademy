@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Instagram, MapPin, Phone } from 'lucide-react'
+import { Instagram, MapPin } from 'lucide-react'
 import { navLinks, site } from '../data/site'
 
 export default function Footer() {
@@ -45,12 +45,6 @@ export default function Footer() {
             <li className="flex items-start gap-3">
               <MapPin size={18} className="mt-0.5 shrink-0 text-gold-400" />
               <span>{site.locationDetail}</span>
-            </li>
-            <li className="flex items-center gap-3">
-              <Phone size={18} className="shrink-0 text-gold-400" />
-              <a href={site.phoneHref} className="transition hover:text-gold-300">
-                {site.phone} ({site.teacher})
-              </a>
             </li>
             <li className="flex items-center gap-3">
               <Instagram size={18} className="shrink-0 text-gold-400" />

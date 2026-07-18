@@ -8,7 +8,7 @@ interface CTABannerProps {
 
 export default function CTABanner({
   title = 'Admission Now Open for Registration 2026',
-  text = 'Spaces are limited and groups are kept small on purpose. Call or text Ms. Mariam at 630-347-4030 to reserve your spot.',
+  text = 'Spaces are limited and groups are kept small on purpose. Reserve your spot today.',
 }: CTABannerProps) {
   return (
     <section className="pattern-dark">
