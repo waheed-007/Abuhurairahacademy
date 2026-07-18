@@ -1,6 +1,8 @@
 import { FormEvent, useState } from 'react'
+import emailjs from '@emailjs/browser'
 import { CheckCircle2, CreditCard, Lock } from 'lucide-react'
 import { insforge } from '../lib/insforge'
+import { emailjsConfig, emailjsReady } from '../lib/emailjs'
 import { summerCamp } from '../data/site'
 
 const inputClass =
@@ -70,6 +72,29 @@ export default function RegistrationForm() {
       amount_due_cents: selected.cents,
       payment_status: 'pending',
     })
+
+    if (!error && emailjsReady) {
+      /* Best-effort confirmation email to the parent. A failure here never
+         blocks registration — the record is already saved above. */
+      try {
+        await emailjs.send(
+          emailjsConfig.serviceId,
+          emailjsConfig.templateId,
+          {
+            to_email: form.parentEmail,
+            to_name: form.parentName,
+            child_name: form.childName,
+            package_label: selected.label,
+            package_time: selected.time,
+            amount_due: `$${selected.price + Number(summerCamp.materialsFee.replace('$', ''))}`,
+            camp_dates: summerCamp.dates,
+          },
+          { publicKey: emailjsConfig.publicKey },
+        )
+      } catch {
+        /* Registration already saved; email delivery is not critical path. */
+      }
+    }
 
     setStatus(error ? 'error' : 'success')
   }
