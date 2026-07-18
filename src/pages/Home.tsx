@@ -122,7 +122,7 @@ export default function Home() {
             <SectionHeading
               align="left"
               eyebrow="Welcome"
-              title="A School That Knows Your Child by Name"
+              title="A School That Hears Your Child"
               intro="The aim of the school is simple: education in a smaller setting for higher student achievement. Every child is seen, heard and stretched — academically and spiritually."
             />
             <ul className="mt-6 space-y-3 text-ink/80">
