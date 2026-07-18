@@ -5,15 +5,15 @@ import { BentoCard, BentoGrid } from '../components/Bento'
 import { site } from '../data/site'
 
 const photos = [
-  { src: '/images/gallery-1.jpg', alt: 'Classroom library corner with a world map and "Our World of Learning" display' },
-  { src: '/images/gallery-2.jpg', alt: 'Reading nook shelf with picture books for students' },
-  { src: '/images/gallery-3.jpg', alt: 'Writing workshop table with prewriting, drafting and editing anchor charts' },
-  { src: '/images/gallery-4.jpg', alt: 'Bookshelf display of leveled reading bins and picture books' },
-  { src: '/images/gallery-5.jpg', alt: 'Classroom library with sorted book bins by subject' },
-  { src: '/images/gallery-6.jpg', alt: 'Whiteboard and study table in the classroom' },
-  { src: '/images/gallery-7.jpg', alt: 'Classroom with whiteboard, round table and chairs' },
-  { src: '/images/gallery-8.jpg', alt: "Teacher's desk with a globe and classroom storage" },
-  { src: '/images/gallery-9.jpg', alt: 'Hallway alphabet chart for early learners' },
+  { src: '/images/gallery-1.jpg', alt: 'Students at the Annual Spelling Bee of Islamic Microschools, holding certificates and medals' },
+  { src: '/images/gallery-2.jpg', alt: 'Ms. Mariam Saifuddin with academy students outdoors, celebrating with flowers' },
+  { src: '/images/gallery-3.jpg', alt: 'Students playing together outdoors after class' },
+  { src: '/images/gallery-4.jpg', alt: 'A student practicing Arabic letter writing in a workbook' },
+  { src: '/images/gallery-5.jpg', alt: 'Students measuring angles with a protractor during a math activity' },
+  { src: '/images/gallery-6.jpg', alt: 'Arts and crafts table with student drawings and markers' },
+  { src: '/images/gallery-7.jpg', alt: 'Play-Doh activity with animal-shaped molds' },
+  { src: '/images/gallery-8.jpg', alt: 'Reading and sentence-building activity with word cards' },
+  { src: '/images/gallery-9.jpg', alt: 'Classroom library with a world map and "Our World of Learning" display' },
 ]
 
 export default function Gallery() {
