@@ -105,6 +105,7 @@ export default function Programs() {
         eyebrow="Programs & Learning"
         title="Strong Islamic Values, Comprehensive Academics"
         intro="An Islamic school program for elementary and middle school students — where deen and a full secular curriculum are taught side by side, in small groups."
+        videoBg="/video/mosaic-marquee.mp4"
       />
 
       <section className="py-16 sm:py-20">
