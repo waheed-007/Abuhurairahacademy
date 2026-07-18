@@ -90,9 +90,10 @@ export default function Home() {
               </Link>
             </div>
           </div>
-          <Placeholder
-            label="Academy photo goes here: students learning together (images/placeholder-hero.jpg — e.g. the reading-corner photo from Instagram)"
-            className="aspect-[4/3] w-full !border-brand-600 !bg-brand-900/60 !text-brand-300"
+          <img
+            src="/images/hero.jpg"
+            alt="Children doing hands-on activities together around a table at the academy"
+            className="aspect-square w-full rounded-2xl border-4 border-brand-700/60 object-cover shadow-2xl shadow-brand-950/40"
           />
         </div>
       </section>
