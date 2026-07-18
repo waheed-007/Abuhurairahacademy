@@ -27,6 +27,10 @@ export const facilities = ['Classroom', 'Library', 'Outdoor Play Area', 'Bathroo
 /* Ms. M's Summer Camp — from the academy's 2026 flyer */
 export const summerCamp = {
   name: "Ms. M's Summer Camp",
+  /* Google Form registration link — paste the real form URL here.
+     Embeds on the Summer Camp page once set. */
+  registrationFormUrl: '',
+  zelle: '6303474030',
   ages: '4 – 12',
   days: 'Monday – Friday',
   dates: 'June 8 – July 3',

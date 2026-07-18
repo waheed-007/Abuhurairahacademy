@@ -1,4 +1,5 @@
 import { FormEvent, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { CalendarCheck, Instagram, MapPin, MessageSquareText, Phone, Send } from 'lucide-react'
 import PageHero from '../components/PageHero'
 import SectionHeading from '../components/SectionHeading'
@@ -151,7 +152,10 @@ export default function Contact() {
             touch early to reserve your child's spot.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-            <a href={site.phoneHref} className="btn-gold">
+            <Link to="/summer-camp#register" className="btn-gold">
+              <CalendarCheck size={16} /> Summer Camp Registration
+            </Link>
+            <a href={site.phoneHref} className="btn-outline">
               <Phone size={16} /> {site.phone}
             </a>
             <a href={site.instagram} target="_blank" rel="noreferrer" className="btn-outline">

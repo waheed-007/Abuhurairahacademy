@@ -154,6 +154,73 @@ export default function SummerCamp() {
         </div>
       </section>
 
+      {/* Registration */}
+      <section id="register" className="py-16 sm:py-20">
+        <div className="container-content">
+          <SectionHeading
+            eyebrow="Registration"
+            title="How to Reserve Your Child's Spot"
+            intro={`Registration closes ${summerCamp.registerBy}. See you on June 8, insha'Allah!`}
+          />
+          <div className="mx-auto mt-10 grid max-w-4xl gap-6 md:grid-cols-3">
+            {[
+              {
+                step: '1',
+                title: 'Fill Out the Form',
+                text: 'Complete the registration form below — please fill out a separate form for each child.',
+              },
+              {
+                step: '2',
+                title: 'Pay via Zelle',
+                text: `Send your payment via Zelle to ${summerCamp.zelle} to secure your child's spot. Add the ${summerCamp.materialsFee} materials fee to your module price.`,
+              },
+              {
+                step: '3',
+                title: "You're In!",
+                text: `That's it — camp begins June 8. Questions? Call or text ${site.phone}.`,
+              },
+            ].map((s) => (
+              <div
+                key={s.step}
+                className="rounded-2xl border border-brand-100 bg-white p-6 text-center"
+              >
+                <span className="mx-auto flex h-10 w-10 items-center justify-center rounded-full bg-gold-400 font-display text-lg text-brand-950">
+                  {s.step}
+                </span>
+                <h3 className="mt-3 font-display text-xl text-brand-900">{s.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-ink/70">{s.text}</p>
+              </div>
+            ))}
+          </div>
+
+          {summerCamp.registrationFormUrl ? (
+            <div className="mx-auto mt-10 max-w-3xl overflow-hidden rounded-3xl border border-brand-100 bg-white">
+              <div className="pattern-dark px-6 py-4 text-center">
+                <h3 className="font-display text-xl text-white">
+                  {summerCamp.name} 2026 — Registration Form
+                </h3>
+              </div>
+              <iframe
+                title="Summer camp registration form"
+                src={summerCamp.registrationFormUrl}
+                className="h-[1200px] w-full"
+                loading="lazy"
+              >
+                Loading…
+              </iframe>
+            </div>
+          ) : (
+            <p className="mx-auto mt-10 max-w-xl text-center text-sm text-ink/60">
+              The online registration form will appear here shortly. In the meantime, call or text{' '}
+              <a href={site.phoneHref} className="font-semibold text-brand-800 underline">
+                {site.phone}
+              </a>{' '}
+              to register.
+            </p>
+          )}
+        </div>
+      </section>
+
       <CTABanner
         title="Reserve Your Child's Summer Spot"
         text={`${summerCamp.dates}, ages ${summerCamp.ages}. Register by ${summerCamp.registerBy} — call or text ${site.phone}.`}
