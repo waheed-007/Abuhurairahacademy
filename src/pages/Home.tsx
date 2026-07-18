@@ -16,6 +16,7 @@ import {
 import SectionHeading from '../components/SectionHeading'
 import CTABanner from '../components/CTABanner'
 import { BentoCard, BentoGrid } from '../components/Bento'
+import CurvedLoop from '../components/CurvedLoop'
 import { facilities, site, summerCamp } from '../data/site'
 
 const provides = [
@@ -181,6 +182,15 @@ export default function Home() {
                 </div>
               )
             })}
+          </div>
+
+          <div className="mt-6">
+            <CurvedLoop
+              marqueeText="Registration Open ✦ Small Groups ✦ Islamic Values ✦ Quality Education ✦"
+              speed={1.2}
+              curveAmount={180}
+              className="curved-loop-text"
+            />
           </div>
         </div>
       </section>
