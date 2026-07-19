@@ -32,15 +32,20 @@ export default function ScrollFloat({
 
   const splitText = useMemo(() => {
     /* Group each word's letters in their own inline-block wrapper so the
-       browser can only wrap lines between words, never mid-word. */
+       browser can only wrap lines between words, never mid-word. The space
+       after each word stays OUTSIDE that wrapper (as a sibling text node) —
+       nesting it inside a white-space:nowrap span would get it collapsed
+       away, gluing words together with no visible gap. */
     const words = children.split(' ')
     return words.map((word, wordIndex) => (
-      <span className="scroll-float-word" key={wordIndex}>
-        {word.split('').map((char, charIndex) => (
-          <span className="char" key={charIndex}>
-            {char}
-          </span>
-        ))}
+      <span key={wordIndex}>
+        <span className="scroll-float-word">
+          {word.split('').map((char, charIndex) => (
+            <span className="char" key={charIndex}>
+              {char}
+            </span>
+          ))}
+        </span>
         {wordIndex < words.length - 1 ? ' ' : ''}
       </span>
     ))

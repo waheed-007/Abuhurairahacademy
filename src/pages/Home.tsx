@@ -17,7 +17,6 @@ import SectionHeading from '../components/SectionHeading'
 import CTABanner from '../components/CTABanner'
 import { BentoCard, BentoGrid } from '../components/Bento'
 import CurvedLoop from '../components/CurvedLoop'
-import DotGrid from '../components/DotGrid'
 import ScrollFloat from '../components/ScrollFloat'
 import PhotoGlare from '../components/PhotoGlare'
 import Reveal from '../components/Reveal'
@@ -71,59 +70,46 @@ export default function Home() {
     <>
       {/* Hero */}
       <section className="pattern-dark relative overflow-hidden">
-        <DotGrid
-          className="absolute inset-0"
-          dotSize={4}
-          gap={22}
-          baseColor="#1f8a80"
-          activeColor="#e6b93c"
-          proximity={140}
-          shockRadius={200}
-          shockStrength={4}
-          resistance={750}
-          returnDuration={1.5}
+        <video
+          className="absolute inset-0 h-full w-full object-cover opacity-30 mix-blend-luminosity"
+          src="/video/wheel-spin-bottom.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
         />
-        <div className="container-content relative grid items-center gap-10 py-20 sm:py-24 lg:grid-cols-2">
-          <div>
-            <span className="inline-flex items-center gap-2 rounded-full bg-gold-400 px-4 py-1.5 text-xs font-bold uppercase tracking-wide text-brand-950">
-              <Sun size={14} /> School Admission Now Open for 2026
-            </span>
-            <ScrollFloat
-              as="h1"
-              containerClassName="mt-5"
-              textClassName="font-display text-4xl leading-tight text-white sm:text-5xl lg:text-6xl"
-            >
-              Islamic School, Bigger Achievements, Smaller Setting
-            </ScrollFloat>
-            <p className="mt-5 max-w-xl text-lg leading-relaxed text-brand-100">
-              AbuHurairah Academy in {site.location} offers an elementary and middle school Islamic
-              program in a small, supportive environment that promotes higher student achievement —
-              strong Islamic values alongside a comprehensive secular curriculum.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <TealRimGlow>
-                <Link to="/contact#register" className="btn-gold">
-                  Register Your Child <ArrowRight size={16} />
-                </Link>
-              </TealRimGlow>
-              <GoldRimGlow>
-                <Link
-                  to="/programs"
-                  className="btn-outline !border-brand-500 !bg-transparent !text-brand-100 hover:!bg-brand-800"
-                >
-                  Explore Programs
-                </Link>
-              </GoldRimGlow>
-            </div>
+        <div className="absolute inset-0 bg-gradient-to-b from-brand-950/50 via-brand-950/40 to-brand-950/80" />
+        <div className="container-content relative mx-auto max-w-3xl py-20 text-center sm:py-24">
+          <span className="inline-flex items-center gap-2 rounded-full bg-gold-400 px-4 py-1.5 text-xs font-bold uppercase tracking-wide text-brand-950">
+            <Sun size={14} /> School Admission Now Open for 2026
+          </span>
+          <ScrollFloat
+            as="h1"
+            containerClassName="mt-5"
+            textClassName="font-display text-4xl leading-tight text-white sm:text-5xl lg:text-6xl"
+          >
+            Islamic School, Bigger Achievements, Smaller Setting
+          </ScrollFloat>
+          <p className="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-brand-100">
+            AbuHurairah Academy in {site.location} offers an elementary and middle school Islamic
+            program in a small, supportive environment that promotes higher student achievement —
+            strong Islamic values alongside a comprehensive secular curriculum.
+          </p>
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
+            <TealRimGlow>
+              <Link to="/contact#register" className="btn-gold">
+                Register Your Child <ArrowRight size={16} />
+              </Link>
+            </TealRimGlow>
+            <GoldRimGlow>
+              <Link
+                to="/programs"
+                className="btn-outline !border-brand-500 !bg-transparent !text-brand-100 hover:!bg-brand-800"
+              >
+                Explore Programs
+              </Link>
+            </GoldRimGlow>
           </div>
-          <video
-            className="aspect-square w-full rounded-2xl border-4 border-brand-700/60 object-cover shadow-2xl shadow-brand-950/40"
-            src="/video/focus-orbit.mp4"
-            autoPlay
-            loop
-            muted
-            playsInline
-          />
         </div>
       </section>
 
@@ -156,7 +142,7 @@ export default function Home() {
             <SectionHeading
               align="left"
               eyebrow="Welcome"
-              title="A School That Hears Your Child"
+              title="A School Built Around Your Child"
               intro="The aim of the school is simple: education in a smaller setting for higher student achievement. Every child is seen, heard and stretched — academically and spiritually."
             />
             <ul className="mt-6 space-y-3 text-ink/80">
