@@ -71,14 +71,14 @@ export default function Home() {
       {/* Hero */}
       <section className="pattern-dark relative overflow-hidden">
         <video
-          className="absolute inset-0 h-full w-full object-cover opacity-30 mix-blend-luminosity"
-          src="/video/wheel-spin-bottom.mp4"
+          className="absolute inset-0 h-full w-full object-cover"
+          src="/video/cover-flow.mp4"
           autoPlay
           loop
           muted
           playsInline
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-brand-950/50 via-brand-950/40 to-brand-950/80" />
+        <div className="absolute inset-0 bg-gradient-to-b from-brand-950/15 via-brand-950/10 to-brand-950/45" />
         <div className="container-content relative mx-auto max-w-3xl py-20 text-center sm:py-24">
           <span className="inline-flex items-center gap-2 rounded-full bg-gold-400 px-4 py-1.5 text-xs font-bold uppercase tracking-wide text-brand-950">
             <Sun size={14} /> School Admission Now Open for 2026
