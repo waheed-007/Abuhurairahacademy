@@ -17,6 +17,7 @@ import SectionHeading from '../components/SectionHeading'
 import CTABanner from '../components/CTABanner'
 import { BentoCard, BentoGrid } from '../components/Bento'
 import CurvedLoop from '../components/CurvedLoop'
+import DotGrid from '../components/DotGrid'
 import ScrollFloat from '../components/ScrollFloat'
 import PhotoGlare from '../components/PhotoGlare'
 import Reveal from '../components/Reveal'
@@ -70,7 +71,19 @@ export default function Home() {
     <>
       {/* Hero */}
       <section className="pattern-dark relative overflow-hidden">
-        <div className="container-content grid items-center gap-10 py-20 sm:py-24 lg:grid-cols-2">
+        <DotGrid
+          className="absolute inset-0"
+          dotSize={4}
+          gap={22}
+          baseColor="#1f8a80"
+          activeColor="#e6b93c"
+          proximity={140}
+          shockRadius={200}
+          shockStrength={4}
+          resistance={750}
+          returnDuration={1.5}
+        />
+        <div className="container-content relative grid items-center gap-10 py-20 sm:py-24 lg:grid-cols-2">
           <div>
             <span className="inline-flex items-center gap-2 rounded-full bg-gold-400 px-4 py-1.5 text-xs font-bold uppercase tracking-wide text-brand-950">
               <Sun size={14} /> School Admission Now Open for 2026
@@ -103,10 +116,13 @@ export default function Home() {
               </GoldRimGlow>
             </div>
           </div>
-          <PhotoGlare
-            src="/images/hero.jpg"
-            alt="Children doing hands-on activities together around a table at the academy"
-            className="aspect-square w-full border-4 border-brand-700/60 shadow-2xl shadow-brand-950/40"
+          <video
+            className="aspect-square w-full rounded-2xl border-4 border-brand-700/60 object-cover shadow-2xl shadow-brand-950/40"
+            src="/video/focus-orbit.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
           />
         </div>
       </section>

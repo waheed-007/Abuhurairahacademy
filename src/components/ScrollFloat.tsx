@@ -31,9 +31,17 @@ export default function ScrollFloat({
   const containerRef = useRef<HTMLElement | null>(null)
 
   const splitText = useMemo(() => {
-    return children.split('').map((char, index) => (
-      <span className="char" key={index}>
-        {char === ' ' ? ' ' : char}
+    /* Group each word's letters in their own inline-block wrapper so the
+       browser can only wrap lines between words, never mid-word. */
+    const words = children.split(' ')
+    return words.map((word, wordIndex) => (
+      <span className="scroll-float-word" key={wordIndex}>
+        {word.split('').map((char, charIndex) => (
+          <span className="char" key={charIndex}>
+            {char}
+          </span>
+        ))}
+        {wordIndex < words.length - 1 ? ' ' : ''}
       </span>
     ))
   }, [children])
