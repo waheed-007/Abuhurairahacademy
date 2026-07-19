@@ -4,6 +4,8 @@ import { CalendarCheck, Instagram, MapPin, MessageSquareText, Phone, Send } from
 import PageHero from '../components/PageHero'
 import SectionHeading from '../components/SectionHeading'
 import ScrollFloat from '../components/ScrollFloat'
+import Reveal from '../components/Reveal'
+import { TealRimGlow, GoldRimGlow } from '../components/SpecularButton'
 import { site, summerCamp } from '../data/site'
 
 const inputClass =
@@ -31,7 +33,7 @@ export default function Contact() {
       <section className="py-16 sm:py-20">
         <div className="container-content grid gap-10 lg:grid-cols-[1fr,1.1fr]">
           {/* Details */}
-          <div>
+          <Reveal from="left">
             <SectionHeading align="left" eyebrow="Get In Touch" title="Academy Details" />
             <ul className="mt-6 space-y-5">
               <li className="flex items-start gap-4">
@@ -70,10 +72,10 @@ export default function Contact() {
                 referrerPolicy="no-referrer-when-downgrade"
               />
             </div>
-          </div>
+          </Reveal>
 
           {/* Form */}
-          <div className="rounded-3xl border border-brand-100 bg-white p-8 sm:p-10">
+          <Reveal from="right" className="rounded-3xl border border-brand-100 bg-white p-8 sm:p-10">
             <ScrollFloat as="h2" textClassName="font-display text-2xl text-brand-900">
               Send Us a Text
             </ScrollFloat>
@@ -116,15 +118,17 @@ export default function Contact() {
                   onChange={(e) => setForm({ ...form, message: e.target.value })}
                 />
               </label>
-              <button type="submit" className="btn-primary w-full sm:w-auto">
-                <Send size={16} /> Send Message
-              </button>
+              <GoldRimGlow className="block w-full sm:inline-block sm:w-auto">
+                <button type="submit" className="btn-primary w-full sm:w-auto">
+                  <Send size={16} /> Send Message
+                </button>
+              </GoldRimGlow>
             </form>
             <p className="mt-4 flex items-start gap-2 text-xs text-ink/50">
               <MessageSquareText size={14} className="mt-0.5 shrink-0" />
               Prefer to talk? Our number is just below, in the Registration section.
             </p>
-          </div>
+          </Reveal>
         </div>
       </section>
 
@@ -147,17 +151,23 @@ export default function Contact() {
             runs {summerCamp.dates}; register by {summerCamp.registerBy}. Space is limited, so get in
             touch early to reserve your child's spot.
           </p>
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-            <Link to="/summer-camp#register" className="btn-gold">
-              <CalendarCheck size={16} /> Summer Camp Registration
-            </Link>
-            <a href={site.phoneHref} className="btn-outline">
-              <Phone size={16} /> {site.phone}
-            </a>
-            <a href={site.instagram} target="_blank" rel="noreferrer" className="btn-outline">
-              <Instagram size={16} /> {site.instagramHandle}
-            </a>
-          </div>
+          <Reveal stagger className="mt-8 flex flex-wrap items-center justify-center gap-3">
+            <TealRimGlow>
+              <Link to="/summer-camp#register" className="btn-gold">
+                <CalendarCheck size={16} /> Summer Camp Registration
+              </Link>
+            </TealRimGlow>
+            <GoldRimGlow>
+              <a href={site.phoneHref} className="btn-outline">
+                <Phone size={16} /> {site.phone}
+              </a>
+            </GoldRimGlow>
+            <GoldRimGlow>
+              <a href={site.instagram} target="_blank" rel="noreferrer" className="btn-outline">
+                <Instagram size={16} /> {site.instagramHandle}
+              </a>
+            </GoldRimGlow>
+          </Reveal>
         </div>
       </section>
     </>

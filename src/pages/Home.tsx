@@ -19,6 +19,8 @@ import { BentoCard, BentoGrid } from '../components/Bento'
 import CurvedLoop from '../components/CurvedLoop'
 import ScrollFloat from '../components/ScrollFloat'
 import PhotoGlare from '../components/PhotoGlare'
+import Reveal from '../components/Reveal'
+import { TealRimGlow, GoldRimGlow } from '../components/SpecularButton'
 import { facilities, site, summerCamp } from '../data/site'
 
 const provides = [
@@ -86,15 +88,19 @@ export default function Home() {
               strong Islamic values alongside a comprehensive secular curriculum.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Link to="/contact#register" className="btn-gold">
-                Register Your Child <ArrowRight size={16} />
-              </Link>
-              <Link
-                to="/programs"
-                className="btn-outline !border-brand-500 !bg-transparent !text-brand-100 hover:!bg-brand-800"
-              >
-                Explore Programs
-              </Link>
+              <TealRimGlow>
+                <Link to="/contact#register" className="btn-gold">
+                  Register Your Child <ArrowRight size={16} />
+                </Link>
+              </TealRimGlow>
+              <GoldRimGlow>
+                <Link
+                  to="/programs"
+                  className="btn-outline !border-brand-500 !bg-transparent !text-brand-100 hover:!bg-brand-800"
+                >
+                  Explore Programs
+                </Link>
+              </GoldRimGlow>
             </div>
           </div>
           <PhotoGlare
@@ -107,25 +113,30 @@ export default function Home() {
 
       {/* Stats */}
       <section className="border-b border-brand-100 bg-white">
-        <div className="container-content grid grid-cols-2 gap-6 py-10 text-center md:grid-cols-4">
+        <Reveal
+          stagger
+          className="container-content grid grid-cols-2 gap-6 py-10 text-center md:grid-cols-4"
+        >
           {stats.map((s) => (
             <div key={s.label}>
               <p className="font-display text-3xl text-brand-800 sm:text-4xl">{s.value}</p>
               <p className="mt-1 text-sm text-ink/60">{s.label}</p>
             </div>
           ))}
-        </div>
+        </Reveal>
       </section>
 
       {/* Intro */}
       <section className="py-16 sm:py-20">
         <div className="container-content grid items-center gap-10 lg:grid-cols-2">
-          <PhotoGlare
-            src="/images/intro.jpg"
-            alt="The academy's reading corner with a world map, book bins and 'Our World of Learning' display"
-            className="aspect-square w-full border border-brand-100 shadow-xl shadow-brand-200/60"
-          />
-          <div>
+          <Reveal from="left">
+            <PhotoGlare
+              src="/images/intro.jpg"
+              alt="The academy's reading corner with a world map, book bins and 'Our World of Learning' display"
+              className="aspect-square w-full border border-brand-100 shadow-xl shadow-brand-200/60"
+            />
+          </Reveal>
+          <Reveal from="right">
             <SectionHeading
               align="left"
               eyebrow="Welcome"
@@ -145,10 +156,12 @@ export default function Home() {
                 </li>
               ))}
             </ul>
-            <Link to="/about" className="btn-primary mt-8">
-              About the Academy <ArrowRight size={16} />
-            </Link>
-          </div>
+            <GoldRimGlow className="mt-8 inline-block">
+              <Link to="/about" className="btn-primary">
+                About the Academy <ArrowRight size={16} />
+              </Link>
+            </GoldRimGlow>
+          </Reveal>
         </div>
       </section>
 
@@ -176,7 +189,7 @@ export default function Home() {
           </BentoGrid>
 
           {/* Facilities strip */}
-          <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
+          <Reveal stagger className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
             {facilities.map((f, i) => {
               const Icon = facilityIcons[i]
               return (
@@ -188,7 +201,7 @@ export default function Home() {
                 </div>
               )
             })}
-          </div>
+          </Reveal>
 
           <div className="mt-6">
             <CurvedLoop
@@ -205,18 +218,20 @@ export default function Home() {
       <section className="py-16 sm:py-20">
         <div className="container-content overflow-hidden rounded-3xl border border-brand-100 bg-white">
           <div className="grid lg:grid-cols-[1.1fr,1fr]">
-            <div className="p-8 sm:p-10">
+            <Reveal from="left" className="p-8 sm:p-10">
               <SectionHeading
                 align="left"
                 eyebrow="Ms. M's Summer Camp"
                 title="Summer Camp for Ages 4–12"
                 intro={`${summerCamp.days}, ${summerCamp.dates}. Quran, seerah, STEM, arts, sports and more — register by ${summerCamp.registerBy}, space is limited!`}
               />
-              <Link to="/summer-camp" className="btn-primary mt-8">
-                <Sun size={16} /> Summer Camp Details
-              </Link>
-            </div>
-            <div className="pattern-dark p-8 sm:p-10">
+              <TealRimGlow className="mt-8 inline-block">
+                <Link to="/summer-camp" className="btn-primary">
+                  <Sun size={16} /> Summer Camp Details
+                </Link>
+              </TealRimGlow>
+            </Reveal>
+            <Reveal from="right" className="pattern-dark p-8 sm:p-10">
               <ul className="divide-y divide-brand-700">
                 {summerCamp.pricing.map((p) => (
                   <li key={p.option} className="flex items-center justify-between py-3">
@@ -234,7 +249,7 @@ export default function Home() {
                   </span>
                 </li>
               </ul>
-            </div>
+            </Reveal>
           </div>
         </div>
       </section>

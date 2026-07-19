@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom'
 import { Phone, Sparkles } from 'lucide-react'
 import ScrollFloat from './ScrollFloat'
+import Reveal from './Reveal'
+import { TealRimGlow, GoldRimGlow } from './SpecularButton'
 
 interface CTABannerProps {
   title?: string
@@ -22,19 +24,23 @@ export default function CTABanner({
           {title}
         </ScrollFloat>
         <p className="max-w-2xl text-brand-100">{text}</p>
-        <div className="flex flex-wrap items-center justify-center gap-3">
-          <Link to="/contact#register" className="btn-gold">
-            <Sparkles size={16} />
-            Register Now
-          </Link>
-          <Link
-            to="/contact"
-            className="btn-outline !border-brand-500 !bg-transparent !text-brand-100 hover:!bg-brand-800"
-          >
-            <Phone size={16} />
-            Contact Us
-          </Link>
-        </div>
+        <Reveal stagger className="flex flex-wrap items-center justify-center gap-3">
+          <TealRimGlow>
+            <Link to="/contact#register" className="btn-gold">
+              <Sparkles size={16} />
+              Register Now
+            </Link>
+          </TealRimGlow>
+          <GoldRimGlow>
+            <Link
+              to="/contact"
+              className="btn-outline !border-brand-500 !bg-transparent !text-brand-100 hover:!bg-brand-800"
+            >
+              <Phone size={16} />
+              Contact Us
+            </Link>
+          </GoldRimGlow>
+        </Reveal>
       </div>
     </section>
   )

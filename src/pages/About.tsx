@@ -4,6 +4,7 @@ import SectionHeading from '../components/SectionHeading'
 import CTABanner from '../components/CTABanner'
 import { BentoCard, BentoGrid } from '../components/Bento'
 import PhotoGlare from '../components/PhotoGlare'
+import Reveal from '../components/Reveal'
 import { facilities, site } from '../data/site'
 
 const values = [
@@ -52,7 +53,7 @@ export default function About() {
       {/* About the school */}
       <section className="py-16 sm:py-20">
         <div className="container-content grid items-start gap-10 lg:grid-cols-2">
-          <div>
+          <Reveal from="left">
             <SectionHeading
               align="left"
               eyebrow="About the School"
@@ -77,8 +78,8 @@ export default function About() {
                 slips through the cracks — and children achieve more than they thought they could.
               </p>
             </div>
-          </div>
-          <div className="space-y-6">
+          </Reveal>
+          <Reveal from="right" className="space-y-6">
             <PhotoGlare
               src="/images/intro.jpg"
               alt="The academy's classroom library with a world map and sorted book bins"
@@ -94,34 +95,36 @@ export default function About() {
                 ))}
               </ul>
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 
       {/* About the teacher */}
       <section className="bg-white py-16 sm:py-20">
         <div className="container-content grid items-center gap-10 lg:grid-cols-2">
-          <PhotoGlare
-            src="/images/teacher.jpg"
-            alt="Ms. Mariam with her students outdoors, holding bouquets of flowers"
-            className="aspect-square w-full border border-brand-100 shadow-xl shadow-brand-200/60"
-          />
-          <div>
+          <Reveal from="left">
+            <PhotoGlare
+              src="/images/teacher.jpg"
+              alt="Ms. Mariam with her students outdoors, holding bouquets of flowers"
+              className="aspect-square w-full border border-brand-100 shadow-xl shadow-brand-200/60"
+            />
+          </Reveal>
+          <Reveal from="right">
             <SectionHeading
               align="left"
               eyebrow="Meet the Teacher"
               title={site.teacher}
               intro="The academy is founded and led by an experienced educator who brings professional training and genuine warmth to every class."
             />
-            <ul className="mt-6 space-y-3">
+            <Reveal as="ul" stagger className="mt-6 space-y-3">
               {credentials.map((c) => (
                 <li key={c.text} className="flex items-start gap-3 text-ink/80">
                   <c.icon size={20} className="mt-0.5 shrink-0 text-brand-600" />
                   <span>{c.text}</span>
                 </li>
               ))}
-            </ul>
-          </div>
+            </Reveal>
+          </Reveal>
         </div>
       </section>
 

@@ -16,6 +16,7 @@ import SectionHeading from '../components/SectionHeading'
 import CTABanner from '../components/CTABanner'
 import { BentoCard, BentoGrid } from '../components/Bento'
 import ScrollFloat from '../components/ScrollFloat'
+import Reveal from '../components/Reveal'
 import RegistrationForm from '../components/RegistrationForm'
 import { summerCamp } from '../data/site'
 
@@ -64,7 +65,7 @@ export default function SummerCamp() {
       {/* Key facts + pricing */}
       <section className="py-16 sm:py-20">
         <div className="container-content grid gap-8 lg:grid-cols-[1fr,1.1fr]">
-          <div className="space-y-4">
+          <Reveal from="left" className="space-y-4">
             <div className="rounded-2xl border border-brand-100 bg-white p-6">
               <div className="flex items-center gap-3">
                 <Baby size={22} className="text-brand-700" />
@@ -104,25 +105,25 @@ export default function SummerCamp() {
                 </li>
               </ul>
             </div>
-          </div>
+          </Reveal>
 
           {/* Daily schedule */}
-          <div className="overflow-hidden rounded-3xl border border-brand-100 bg-white">
+          <Reveal from="right" className="overflow-hidden rounded-3xl border border-brand-100 bg-white">
             <div className="pattern-dark flex items-center justify-between px-6 py-5 sm:px-8">
               <ScrollFloat as="h2" textClassName="font-display text-2xl text-white">
                 Daily Schedule
               </ScrollFloat>
               <Clock className="text-gold-300" size={26} />
             </div>
-            <ul className="divide-y divide-brand-100">
+            <Reveal as="ul" stagger className="divide-y divide-brand-100">
               {summerCamp.schedule.map((s) => (
                 <li key={s.time} className="flex items-center gap-4 px-6 py-3 sm:px-8">
                   <span className="w-14 shrink-0 font-display text-brand-800">{s.time}</span>
                   <span className="text-sm text-ink/80">{s.activity}</span>
                 </li>
               ))}
-            </ul>
-          </div>
+            </Reveal>
+          </Reveal>
         </div>
       </section>
 
@@ -164,7 +165,7 @@ export default function SummerCamp() {
             title="Reserve Your Child's Spot"
             intro={`Registration closes ${summerCamp.registerBy}. Please submit a separate form for each child. See you on June 8, insha'Allah!`}
           />
-          <div className="mx-auto mt-10 grid max-w-4xl gap-6 md:grid-cols-3">
+          <Reveal stagger className="mx-auto mt-10 grid max-w-4xl gap-6 md:grid-cols-3">
             {[
               {
                 step: '1',
@@ -193,7 +194,7 @@ export default function SummerCamp() {
                 <p className="mt-2 text-sm leading-relaxed text-ink/70">{s.text}</p>
               </div>
             ))}
-          </div>
+          </Reveal>
 
           <div className="mt-10">
             <RegistrationForm />

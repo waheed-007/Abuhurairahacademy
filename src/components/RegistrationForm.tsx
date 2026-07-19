@@ -3,6 +3,7 @@ import emailjs from '@emailjs/browser'
 import { CheckCircle2, CreditCard, Lock } from 'lucide-react'
 import { insforge } from '../lib/insforge'
 import { emailjsConfig, emailjsReady } from '../lib/emailjs'
+import { TealRimGlow } from './SpecularButton'
 import { summerCamp } from '../data/site'
 
 const inputClass =
@@ -305,11 +306,13 @@ export default function RegistrationForm() {
         </p>
       </div>
 
-      <button type="submit" disabled={status === 'submitting'} className="btn-gold w-full">
-        {status === 'submitting'
-          ? 'Processing…'
-          : `Pay $${selected.price + Number(summerCamp.materialsFee.replace('$', ''))} & Reserve Spot`}
-      </button>
+      <TealRimGlow className="block w-full">
+        <button type="submit" disabled={status === 'submitting'} className="btn-gold w-full">
+          {status === 'submitting'
+            ? 'Processing…'
+            : `Pay $${selected.price + Number(summerCamp.materialsFee.replace('$', ''))} & Reserve Spot`}
+        </button>
+      </TealRimGlow>
 
       {status === 'error' && (
         <p className="text-center text-sm text-coral-600">

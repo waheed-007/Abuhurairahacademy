@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { Menu, Sparkles, X } from 'lucide-react'
+import { TealRimGlow } from './SpecularButton'
 import { navLinks } from '../data/site'
 
 export default function Navbar() {
@@ -33,10 +34,12 @@ export default function Navbar() {
               {link.label}
             </NavLink>
           ))}
-          <Link to="/contact#register" className="btn-gold ml-2 !px-5 !py-2">
-            <Sparkles size={16} />
-            Register 2026
-          </Link>
+          <TealRimGlow className="ml-2">
+            <Link to="/contact#register" className="btn-gold !px-5 !py-2">
+              <Sparkles size={16} />
+              Register 2026
+            </Link>
+          </TealRimGlow>
         </nav>
 
         <button
@@ -68,14 +71,16 @@ export default function Navbar() {
                 {link.label}
               </NavLink>
             ))}
-            <Link
-              to="/contact#register"
-              onClick={() => setOpen(false)}
-              className="btn-gold mt-2 self-start !px-5 !py-2"
-            >
-              <Sparkles size={16} />
-              Register 2026
-            </Link>
+            <TealRimGlow className="mt-2 self-start">
+              <Link
+                to="/contact#register"
+                onClick={() => setOpen(false)}
+                className="btn-gold !px-5 !py-2"
+              >
+                <Sparkles size={16} />
+                Register 2026
+              </Link>
+            </TealRimGlow>
           </div>
         </nav>
       )}

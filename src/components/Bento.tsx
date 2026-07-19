@@ -1,6 +1,9 @@
 import { ReactNode, useCallback, useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import './bento.css'
+
+gsap.registerPlugin(ScrollTrigger)
 
 /* Interactive card effects adapted from React Bits' MagicBento,
    recolored to the academy's teal/gold theme. Effects are skipped
@@ -158,6 +161,37 @@ export function BentoCard({ children, className = '' }: BentoProps) {
 
 export function BentoGrid({ children, className = '' }: BentoProps) {
   const gridRef = useRef<HTMLDivElement>(null)
+
+  /* Scroll-in reveal: cards cascade in left-to-right, fading and sliding
+     up into place as the grid enters the viewport. Plays once. */
+  useEffect(() => {
+    const grid = gridRef.current
+    if (!grid) return
+    const cards = grid.querySelectorAll<HTMLElement>(':scope > *')
+    if (!cards.length) return
+
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        cards,
+        { opacity: 0, x: -50, y: 24 },
+        {
+          opacity: 1,
+          x: 0,
+          y: 0,
+          duration: 0.7,
+          ease: 'power3.out',
+          stagger: 0.12,
+          scrollTrigger: {
+            trigger: grid,
+            start: 'top 85%',
+            toggleActions: 'play none none none',
+          },
+        },
+      )
+    }, grid)
+
+    return () => ctx.revert()
+  }, [])
 
   useEffect(() => {
     const grid = gridRef.current

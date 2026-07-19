@@ -3,6 +3,7 @@ import PageHero from '../components/PageHero'
 import CTABanner from '../components/CTABanner'
 import { BentoCard, BentoGrid } from '../components/Bento'
 import PhotoGlare from '../components/PhotoGlare'
+import { GoldRimGlow } from '../components/SpecularButton'
 import { site } from '../data/site'
 
 const photos = [
@@ -36,14 +37,16 @@ export default function Gallery() {
             ))}
           </BentoGrid>
           <div className="mt-10 text-center">
-            <a
-              href={site.instagram}
-              target="_blank"
-              rel="noreferrer"
-              className="btn-primary inline-flex"
-            >
-              <Instagram size={18} /> Follow us on Instagram {site.instagramHandle}
-            </a>
+            <GoldRimGlow>
+              <a
+                href={site.instagram}
+                target="_blank"
+                rel="noreferrer"
+                className="btn-primary inline-flex"
+              >
+                <Instagram size={18} /> Follow us on Instagram {site.instagramHandle}
+              </a>
+            </GoldRimGlow>
             <p className="mt-4 text-sm text-ink/60">
               Photos of students are shared with parental consent.
             </p>
